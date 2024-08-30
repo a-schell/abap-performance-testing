@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MEASUREMENT_TEST</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Measurement test</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>RUN_TEST</CMPNAME>
+     <SCONAME>IV_MEASUREMENT_ITERATIONS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Number of loop iterations</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RUN_TEST</CMPNAME>
+     <SCONAME>IV_MEASUREMENT_REPEATS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Number of test repeats</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RUN_TEST</CMPNAME>
+     <SCONAME>RS_RESULTS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Results of a +REP/+ENDREP Messurement</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
