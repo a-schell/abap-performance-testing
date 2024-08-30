@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>Measurement components</CTEXT>
+    <CTEXT>Meausrement components</CTEXT>
    </DEVC>
   </asx:values>
  </asx:abap>
