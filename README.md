@@ -7,7 +7,7 @@ To address the question and gain some insights, let’s approach the problem fro
 
 Let's define four test cases to evaluate the performance impact of try-catch statements in different scenarios:
 
-1. **[\<TRY [LOOP]\>**  
+1. **\<TRY [LOOP]\>**  
 try/catch outside the loop
 2. **[LOOP \<TRY\>]**  
 try/catch inside  the loop
@@ -21,7 +21,7 @@ Below, I will show the relevant parts of the code to illustrate the testing proc
 For looping, the `DO` keyword is used (in bytecode, it is translated into the WHILx opcode, like other looping statements).<br/>
 To measure the runtime the construct  `+REP x TIMES. ...code... +ENDREP RESULTS structure.`  is used. It repeats the code inside it `x` times and records time measurements in the `structure` of type `REP_S_RESULTS`, from which the component `RTIME` - gross time - is used for the calculations. The REP statement is directly translated into the bytecode REP opcode.
 
-ABAP coding for [LOOP \<TRY\>] and [LOOP \<TRY EXCP\>]:
+ABAP coding for [[LOOP \<TRY\>]](src/test_trycatch_loop/zcl_t_trycatch_inside_loop.clas.abap) and [[LOOP \<TRY EXCP\>]](src/test_trycatch_loop/zcl_t_trycatch_inside_loop_ex.clas.abap):
 ```
   METHOD zif_measurement_test~run_test.
 
@@ -51,7 +51,7 @@ ABAP coding for [LOOP \<TRY\>] and [LOOP \<TRY EXCP\>]:
   ENDMETHOD.
 ```
 
-ABAP coding for \<TRY [LOOP]\> and \<TRY [LOOP EXCP]\>:
+ABAP coding for [\<TRY [LOOP]\>](src/test_trycatch_loop/zcl_t_trycatch_outside_loop.clas.abap) and [\<TRY [LOOP EXCP]\>](src/test_trycatch_loop/zcl_t_trycatch_outside_loop_ex.clas.abap):
 ```
   METHOD zif_measurement_test~run_test.
 
@@ -82,7 +82,7 @@ ABAP coding for \<TRY [LOOP]\> and \<TRY [LOOP EXCP]\>:
   ENDMETHOD.
 ```
 
-The `zcl_measurement_blackhole=>consume( )` method does not do anything special; just introduces some calculations to create a CPU load and obtain more scaled time values:
+The [`zcl_measurement_blackhole=>consume( )`](src/infra/zcl_measurement_blackhole.clas.abap) method does not do anything special; just introduces some calculations to create a CPU load and obtain more scaled time values:
 ```
   METHOD consume.
     rv_double = compute_single( cv_pi ). + compute_single( cv_pi * 2 ).
@@ -104,7 +104,7 @@ The code was kept minimalistic and consistent across all test cases to execute t
 
 **Execution of Test Cases**
 
-The four test cases were executed with 101, 501, 1001, and 5001 single runs, respectively. One _single run_ (the code inside +REP ... +ENDREP) is `10` loop iterations repeated 
+The [four test cases](src/test_trycatch_loop/zcl_run_trycatch_loop.clas.abap) [were executed](src/execute/z_trycatch_loop_measure.prog.abap) with 101, 501, 1001, and 5001 single runs, respectively. One _single run_ (the code inside +REP ... +ENDREP) is `10` loop iterations repeated 
 `n` times where `n = 100 + single_runs_couter` (i.e. increasing by `1` per single run). In the relevant test cases, one exception was thrown per 10 loop iterations.
 
 ```
